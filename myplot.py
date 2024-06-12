@@ -134,7 +134,7 @@ def calcRocGen(my_dec,c=20):
 
 data = pd.DataFrame
 def myplot(tt,data, anomalies):
-    print(len(tt),len(data))
+    #print(len(tt),len(data))
     ano1 = anomalies.iloc[0:,0]
     ano2 = anomalies.iloc[0:,1]
     dataA = data.iloc[0:,0]
@@ -153,13 +153,13 @@ def myplot(tt,data, anomalies):
             bt = bt.append(bt,tt[i])
     
     fig, (ax1,ax2) = plt.subplots(nrows=2,ncols=1,figure= (10,5))
-    ax1.plot(tt,data["healthy"],marker=".",color = "blue",label="gesund",zorder=1)
-    ax2.plot(tt,data["broken"],marker=".",color= "orange",label="beschädigt",zorder=1)
+    ax1.plot(tt,data["healthy"],marker=".",color = "blue",label="Gesund",zorder=1)
+    ax2.plot(tt,data["broken"],marker=".",color= "orange",label="Beschädigt",zorder=1)
     ax1.scatter(at,aa,marker = "o",color="red",label="Ausreißer",zorder=2)
     ax2.scatter(bt,bb,marker="o",color="red",label ="Ausreißer",zorder=2)
-    ax1.set_ylabel("Beschleunigung in [m/s^2]")
+    ax1.set_ylabel("Beschleunigung in [m/$s^2$]")
     ax1.set_xlabel("Zeit in [s]")
-    ax2.set_ylabel("Beschleunigung in [m/s^2]")
+    ax2.set_ylabel("Beschleunigung in [m/$s^2$]")
     ax2.set_xlabel("Zeit in [s]")
     ax1.legend()
     ax2.legend()
